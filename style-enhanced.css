@@ -44,17 +44,31 @@ body::before {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
-    padding: 50px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     transform-style: preserve-3d;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(30px);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    z-index: -1;
+    border-radius: 27px;
 }
 
 .card.loaded {
@@ -63,9 +77,11 @@ body::before {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 55px rgba(0, 0, 0, 0.18),
-                0 0 0 1px rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 0 20px rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.4);
 }
 
 .profile-picture {
@@ -141,9 +157,19 @@ h1 {
     padding: 25px;
     border-radius: 20px;
     margin: 25px 0;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
     opacity: 0;
     animation: fadeInUp 1s ease 0.8s forwards;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .info p {
@@ -163,9 +189,20 @@ h1 {
     padding: 25px;
     border-radius: 20px;
     margin: 25px 0;
-    border: 1px solid rgba(102, 126, 234, 0.2);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
     opacity: 0;
     animation: fadeInUp 1s ease 1.1s forwards;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.interests:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    border-color: rgba(102, 126, 234, 0.4);
 }
 
 .interests h3 {
@@ -229,6 +266,10 @@ h1 {
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
 }
 
 .social-links a::before {
@@ -238,8 +279,8 @@ h1 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
 }
 
 .social-links a:hover::before {
@@ -247,8 +288,10 @@ h1 {
 }
 
 .social-links a:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    transform: translateY(-5px) scale(1.1) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.5),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Floating particles animation */

@@ -159,52 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => visitCounter.remove(), 500);
     }, 8000);
 
-    // Efeito de confetti ao clicar
-    document.addEventListener('click', (e) => {
-        createClickEffect(e.clientX, e.clientY);
-    });
 });
 
-// Função para criar efeito de confetti ao clicar
-function createClickEffect(x, y) {
-    for (let i = 0; i < 10; i++) {
-        const confetti = document.createElement('div');
-        confetti.style.cssText = `
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1000;
-        `;
-        
-        confetti.style.left = `${x}px`;
-        confetti.style.top = `${y}px`;
-        
-        const angle = Math.random() * Math.PI * 2;
-        const velocity = 2 + Math.random() * 3;
-        const xVel = Math.cos(angle) * velocity;
-        const yVel = Math.sin(angle) * velocity;
-        
-        document.body.appendChild(confetti);
-        
-        let opacity = 1;
-        const animate = () => {
-            opacity -= 0.02;
-            if (opacity <= 0) {
-                confetti.remove();
-                return;
-            }
-            
-            confetti.style.opacity = opacity;
-            confetti.style.transform = `translate(${xVel * (1 - opacity) * 50}px, ${yVel * (1 - opacity) * 50}px)`;
-            requestAnimationFrame(animate);
-        };
-        
-        animate();
-    }
-}
 
 // Função para modo escuro/claro
 function toggleDarkMode() {
